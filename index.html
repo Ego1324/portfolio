@@ -7,42 +7,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
 :root {
-  --blue:     #6ea8ff;   /* couleur principale */
-  --sky:      #d6e8ff;   /* fond doux */
-  --ice:      #f0f6ff;   /* fond général */
-  --periw:    #4f7fd8;   /* boutons / hover */
-  --deep:     #2f4f8a;   /* titres importants */
-  --text:     #243447;   /* texte principal */
-  --soft:     #e6f0ff;   /* sections secondaires */
+  --blue:     #6ea8ff;
+  --sky:      #d6e8ff;
+  --ice:      #f0f6ff;
+  --periw:    #4f7fd8;
+  --deep:     #2f4f8a;
+  --text:     #243447;
+  --soft:     #e6f0ff;
   --card:     #ffffff;
   --shadow:   rgba(79,127,216,.20);
 }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--ice);
       color: var(--text);
       overflow-x: hidden;
     }
-
-    /* ── GRAIN OVERLAY ── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
       pointer-events: none;
     }
-
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--sky); }
-    ::-webkit-scrollbar-thumb { background: var(--bleu); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 99px; }
 
-    /* ── NAV ── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
       padding: 1.1rem 2.5rem;
@@ -51,12 +44,8 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(242,167,184,.25);
     }
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; color: var(--deep);
-      letter-spacing: .5px;
-    }
-    .nav-logo span { color: var(--bleu); font-style: italic; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--deep); letter-spacing: .5px; }
+    .nav-logo span { color: var(--blue); font-style: italic; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-size: .85rem; font-weight: 500;
@@ -66,10 +55,8 @@
     }
     .nav-links a:hover { color: var(--deep); }
 
-    /* ── SECTIONS ── */
     section { position: relative; z-index: 1; }
 
-    /* ── HERO ── */
     #hero {
       min-height: 100vh;
       display: grid; place-items: center;
@@ -92,18 +79,9 @@
       border-radius: 99px; margin-bottom: 1.2rem;
       border: 1px solid rgba(79,127,216,.3);
     }
-    .hero-text h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.5rem);
-      line-height: 1.15; color: var(--deep);
-      margin-bottom: .8rem;
-    }
+    .hero-text h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5vw, 3.5rem); line-height: 1.15; color: var(--deep); margin-bottom: .8rem; }
     .hero-text h1 em { color: var(--blue); font-style: italic; }
-    .hero-text p {
-      font-size: 1rem; line-height: 1.75;
-      color: #8a6070; max-width: 38ch;
-      margin-bottom: 2rem;
-    }
+    .hero-text p { font-size: 1rem; line-height: 1.75; color: #8a6070; max-width: 38ch; margin-bottom: 2rem; }
     .btn-primary {
       display: inline-flex; align-items: center; gap: .55rem;
       background: linear-gradient(135deg, var(--blue), var(--periw));
@@ -115,11 +93,8 @@
     }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(79,127,216,.45); }
 
-    /* hero avatar */
     .hero-visual { animation: fadeUp .9s .15s ease both; display: flex; justify-content: center; }
-    .avatar-wrap {
-      width: 280px; height: 280px; position: relative;
-    }
+    .avatar-wrap { width: 280px; height: 280px; position: relative; }
     .avatar-circle {
       width: 100%; height: 100%; border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
       background: linear-gradient(135deg, var(--sky) 0%, var(--blue) 100%);
@@ -140,56 +115,20 @@
     .deco-2 { bottom: 10px; left: -5px; }
     .deco-3 { top: 50%; right: -15px; transform: translateY(-50%); }
 
-    /* ── ABOUT ── */
-    #about {
-      padding: 5rem 2rem;
-      background: var(--soft);
-    }
-    .section-header {
-      text-align: center; margin-bottom: 3rem;
-    }
-    .section-header h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      color: var(--deep); margin-bottom: .5rem;
-    }
+    #about { padding: 5rem 2rem; background: var(--soft); }
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); color: var(--deep); margin-bottom: .5rem; }
     .section-header p { color: var(--periw); font-size: .9rem; letter-spacing: .5px; }
-    .divider {
-      width: 50px; height: 3px;
-      background: linear-gradient(90deg, var(--blue), transparent);
-      margin: .8rem auto 0;
-      border-radius: 99px;
-    }
-    .about-grid {
-      max-width: 860px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    }
-    .about-card {
-      background: var(--card); border-radius: 20px;
-      padding: 2rem; border: 1px solid rgba(79,127,216,.2);
-      box-shadow: 0 4px 24px var(--shadow);
-    }
-    .about-card h3 {
-      font-family: 'Playfair Display', serif;
-      color: var(--deep); margin-bottom: 1rem; font-size: 1.15rem;
-    }
+    .divider { width: 50px; height: 3px; background: linear-gradient(90deg, var(--blue), transparent); margin: .8rem auto 0; border-radius: 99px; }
+    .about-grid { max-width: 860px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .about-card { background: var(--card); border-radius: 20px; padding: 2rem; border: 1px solid rgba(79,127,216,.2); box-shadow: 0 4px 24px var(--shadow); }
+    .about-card h3 { font-family: 'Playfair Display', serif; color: var(--deep); margin-bottom: 1rem; font-size: 1.15rem; }
     .about-card p { line-height: 1.75; color: #7a5a68; font-size: .92rem; }
     .about-full { grid-column: 1 / -1; }
 
-    /* ── SKILLS ── */
     #skills { padding: 5rem 2rem; background: var(--ice); }
-    .skills-grid {
-      max-width: 900px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.4rem;
-    }
-    .skill-card {
-      background: var(--card); border-radius: 18px;
-      padding: 1.5rem; text-align: center;
-      border: 1px solid rgba(79,127,216,.2);
-      box-shadow: 0 4px 20px var(--shadow);
-      transition: transform .25s, box-shadow .25s;
-      cursor: default;
-    }
+    .skills-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.4rem; }
+    .skill-card { background: var(--card); border-radius: 18px; padding: 1.5rem; text-align: center; border: 1px solid rgba(79,127,216,.2); box-shadow: 0 4px 20px var(--shadow); transition: transform .25s, box-shadow .25s; cursor: default; }
     .skill-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px var(--shadow); }
     .skill-icon { font-size: 2.2rem; margin-bottom: .7rem; }
     .skill-card h4 { font-weight: 600; color: var(--deep); font-size: .95rem; margin-bottom: .4rem; }
@@ -197,88 +136,97 @@
     .skill-bar-wrap { margin-top: .8rem; background: var(--sky); height: 5px; border-radius: 99px; overflow: hidden; }
     .skill-bar { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue), var(--periw)); }
 
-    /* ── PROJECTS ── */
     #projects { padding: 5rem 2rem; background: var(--soft); }
-    .projects-grid {
-      max-width: 960px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem;
-    }
-    .project-card {
-      background: var(--card); border-radius: 24px; overflow: hidden;
-      border: 1px solid rgba(79,127,216,.2);
-      box-shadow: 0 6px 28px var(--shadow);
-      transition: transform .3s, box-shadow .3s;
-    }
+    .projects-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
+    .project-card { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid rgba(79,127,216,.2); box-shadow: 0 6px 28px var(--shadow); transition: transform .3s, box-shadow .3s; }
     .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 44px var(--shadow); }
-    .project-thumb {
-      height: 140px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 3.5rem;
-    }
+    .project-thumb { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
     .thumb-web  { background: linear-gradient(135deg, #e4f0ff, #bcd6ff); }
     .thumb-app  { background: linear-gradient(135deg, #e8f2ff, #c7ddff); }
     .thumb-db   { background: linear-gradient(135deg, #dcecff, #9fc4ff); }
     .project-body { padding: 1.4rem; }
-    .project-tag {
-      display: inline-block;
-      background: var(--sky); color: var(--periw);
-      font-size: .7rem; font-weight: 600; letter-spacing: .8px;
-      text-transform: uppercase; padding: .25rem .7rem;
-      border-radius: 99px; margin-bottom: .7rem;
-    }
+    .project-tag { display: inline-block; background: var(--sky); color: var(--periw); font-size: .7rem; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; padding: .25rem .7rem; border-radius: 99px; margin-bottom: .7rem; }
     .project-body h3 { font-family: 'Playfair Display', serif; color: var(--deep); margin-bottom: .5rem; font-size: 1.1rem; }
     .project-body p { font-size: .85rem; line-height: 1.65; color: #8a6070; }
     .project-techs { margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .4rem; }
-    .tech-badge {
-      font-size: .72rem; padding: .25rem .65rem;
-      border-radius: 99px; background: var(--soft);
-      color: var(--periw); font-weight: 500;
-      border: 1px solid rgba(196,132,154,.2);
+    .tech-badge { font-size: .72rem; padding: .25rem .65rem; border-radius: 99px; background: var(--soft); color: var(--periw); font-weight: 500; border: 1px solid rgba(196,132,154,.2); }
+
+    /* ── VEILLE TECHNOLOGIQUE ── */
+    #veille { padding: 5rem 2rem; background: var(--ice); }
+
+    .veille-intro { max-width: 700px; margin: 0 auto 2.5rem; text-align: center; }
+    .veille-intro p { color: #7a5a68; font-size: .92rem; line-height: 1.75; }
+    .veille-sources { display: flex; justify-content: center; gap: .8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .source-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--card); border: 1px solid rgba(79,127,216,.25);
+      color: var(--periw); font-size: .8rem; font-weight: 500;
+      padding: .4rem 1rem; border-radius: 99px;
+      box-shadow: 0 2px 10px var(--shadow);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
     }
+    .source-badge:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--shadow); }
+
+    /* onglets */
+    .veille-tabs {
+      max-width: 960px; margin: 0 auto 2rem;
+      display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+    }
+    .veille-tab {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .6rem 1.3rem; border-radius: 99px;
+      font-size: .85rem; font-weight: 500; cursor: pointer;
+      border: 1.5px solid rgba(79,127,216,.3);
+      background: var(--card); color: var(--periw);
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: all .25s; user-select: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .veille-tab:hover { background: var(--sky); }
+    .veille-tab.active {
+      background: linear-gradient(135deg, var(--blue), var(--periw));
+      color: #fff; border-color: transparent;
+      box-shadow: 0 6px 20px rgba(79,127,216,.4);
+    }
+
+    /* panneaux */
+    .veille-panel { display: none; max-width: 960px; margin: 0 auto; animation: fadeUp .45s ease both; }
+    .veille-panel.active { display: block; }
+
+    .veille-embed-wrap {
+      background: var(--card); border-radius: 24px;
+      border: 1px solid rgba(79,127,216,.2);
+      box-shadow: 0 6px 28px var(--shadow);
+      overflow: hidden; padding: 1.5rem;
+    }
+    .veille-embed-wrap iframe {
+      width: 100% !important; height: 500px !important;
+      border: none !important; border-radius: 12px; display: block;
+    }
+    .veille-embed-caption { margin-top: 1rem; text-align: center; font-size: .82rem; color: #8a6070; }
+    .veille-embed-caption a { color: var(--periw); text-decoration: none; font-weight: 500; }
+    .veille-embed-caption a:hover { color: var(--deep); }
 
     /* ── CONTACT ── */
-    #contact { padding: 5rem 2rem 4rem; background: var(--ice); }
-    .contact-wrap {
-      max-width: 600px; margin: 0 auto; text-align: center;
-    }
+    #contact { padding: 5rem 2rem 4rem; background: var(--soft); }
+    .contact-wrap { max-width: 600px; margin: 0 auto; text-align: center; }
     .contact-links { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2rem; }
-    .contact-btn {
-      display: inline-flex; align-items: center; gap: .6rem;
-      padding: .8rem 1.6rem; border-radius: 99px;
-      font-size: .88rem; font-weight: 500; text-decoration: none;
-      transition: transform .25s, box-shadow .25s;
-    }
-    .contact-btn.primary {
-      background: linear-gradient(135deg, var(--blue), var(--periw));
-      color: #fff; box-shadow: 0 6px 24px var(--shadow);
-    }
-    .contact-btn.secondary {
-      background: var(--sky); color: var(--deep);
-      border: 1px solid rgba(79,127,216,.3);
-    }
+    .contact-btn { display: inline-flex; align-items: center; gap: .6rem; padding: .8rem 1.6rem; border-radius: 99px; font-size: .88rem; font-weight: 500; text-decoration: none; transition: transform .25s, box-shadow .25s; }
+    .contact-btn.primary { background: linear-gradient(135deg, var(--blue), var(--periw)); color: #fff; box-shadow: 0 6px 24px var(--shadow); }
+    .contact-btn.secondary { background: var(--sky); color: var(--deep); border: 1px solid rgba(79,127,216,.3); }
     .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px var(--shadow); }
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center; padding: 1.5rem;
-      background: var(--soft);
-      font-size: .8rem; color: var(--periw);
-      border-top: 1px solid rgba(79,127,216,.2);
-    }
+    footer { text-align: center; padding: 1.5rem; background: var(--soft); font-size: .8rem; color: var(--periw); border-top: 1px solid rgba(79,127,216,.2); }
     footer span { color: var(--blue); }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes morphBlob {
       0%,100% { border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%; }
       33%      { border-radius: 45% 55% 40% 60% / 55% 45% 55% 45%; }
       66%      { border-radius: 55% 45% 60% 40% / 45% 55% 45% 55%; }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; }
       .hero-text p { max-width: 100%; }
@@ -286,6 +234,7 @@
       .about-grid { grid-template-columns: 1fr; }
       nav { padding: 1rem 1.2rem; }
       .nav-links { gap: 1rem; }
+      .veille-embed-wrap iframe { height: 380px !important; }
     }
   </style>
 </head>
@@ -298,6 +247,7 @@
     <li><a href="#about">À propos</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projets</a></li>
+    <li><a href="#veille">Veille</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -332,12 +282,9 @@
   <div class="about-grid">
     <div class="about-card about-full">
       <h3>🌸 Mon parcours</h3>
-      <p>
-        Actuellement en BTS SIO option SLAM, je me spécialise dans le développement web.
+      <p>Actuellement en BTS SIO option SLAM, je me spécialise dans le développement web.
         Passionnée par la création numérique, j'aime concevoir des interfaces intuitives et élégantes qui allient design et fonctionnalité.
-        
-        </br> Mon objectif : devenir web desingeuse pour les sites internet.
-      </p>
+        </br> Mon objectif : devenir web designeuse pour les sites internet.</p>
     </div>
     <div class="about-card">
       <h3>🎓 Formation</h3>
@@ -345,7 +292,7 @@
     </div>
     <div class="about-card">
       <h3>💡 Ce que j'aime</h3>
-      <p>Le développement web, les interfaces jolies, résoudre des problèmes complexes de façon créative, et le thé chaud en codant ☕</p>
+      <p>Le développement web, les interfaces jolies, résoudre des problèmes complexes de façon créative. ☕</p>
     </div>
   </div>
 </section>
@@ -358,54 +305,14 @@
     <div class="divider"></div>
   </div>
   <div class="skills-grid">
-    <div class="skill-card">
-      <div class="skill-icon">🌐</div>
-      <h4>HTML / CSS</h4>
-      <p>Intégration web responsive</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">⚡</div>
-      <h4>JavaScript</h4>
-      <p>Interactivité & logique front</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🐘</div>
-      <h4>PHP / MySQL</h4>
-      <p>Back-end & bases de données</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🗄️</div>
-      <h4>SQL</h4>
-      <p>Modélisation & requêtes</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">☕</div>
-      <h4>Java</h4>
-      <p>POO & applications desktop</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">📱</div>
-      <h4>Android Studio</h4>
-      <p>Développement mobile</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🐍</div>
-      <h4>Python</h4>
-      <p>Scripts & automatisation</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-    </div>
-    <div class="skill-card">
-      <div class="skill-icon">🎨</div>
-      <h4>UI / UX Design</h4>
-      <p>Figma & maquettage</p>
-      <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-    </div>
+    <div class="skill-card"><div class="skill-icon">🌐</div><h4>HTML / CSS</h4><p>Intégration web responsive</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><h4>JavaScript</h4><p>Interactivité & logique front</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🐘</div><h4>PHP / MySQL</h4><p>Back-end & bases de données</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🗄️</div><h4>SQL</h4><p>Modélisation & requêtes</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">☕</div><h4>Java</h4><p>POO & applications desktop</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">📱</div><h4>Android Studio</h4><p>Développement mobile</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🐍</div><h4>Python</h4><p>Scripts & automatisation</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+    <div class="skill-card"><div class="skill-icon">🎨</div><h4>UI / UX Design</h4><p>Figma & maquettage</p><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
   </div>
 </section>
 
@@ -417,50 +324,87 @@
     <div class="divider"></div>
   </div>
   <div class="projects-grid">
-
     <div class="project-card">
       <div class="project-thumb thumb-web">🌸</div>
       <div class="project-body">
         <div class="project-tag">Site web</div>
         <h3>Nom du projet web</h3>
         <p>Description de ton projet : de quoi il s'agit, à quel besoin il répond, ce que tu as appris en le réalisant.</p>
-        <div class="project-techs">
-          <span class="tech-badge">HTML</span>
-          <span class="tech-badge">CSS</span>
-          <span class="tech-badge">PHP</span>
-          <span class="tech-badge">MySQL</span>
-        </div>
+        <div class="project-techs"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
       </div>
     </div>
-
     <div class="project-card">
       <div class="project-thumb thumb-app">📱</div>
       <div class="project-body">
         <div class="project-tag">Application mobile</div>
         <h3>Nom de l'application</h3>
         <p>Description de ton appli mobile : fonctionnalités principales, public cible, et technologies utilisées.</p>
-        <div class="project-techs">
-          <span class="tech-badge">Android Studio</span>
-          <span class="tech-badge">Java</span>
-          <span class="tech-badge">SQLite</span>
-        </div>
+        <div class="project-techs"><span class="tech-badge">Android Studio</span><span class="tech-badge">Java</span><span class="tech-badge">SQLite</span></div>
       </div>
     </div>
-
     <div class="project-card">
       <div class="project-thumb thumb-db">🗄️</div>
       <div class="project-body">
         <div class="project-tag">Base de données</div>
         <h3>Projet base de données</h3>
         <p>Modélisation et implémentation d'une base de données relationnelle, avec des requêtes SQL optimisées.</p>
-        <div class="project-techs">
-          <span class="tech-badge">MySQL</span>
-          <span class="tech-badge">SQL</span>
-          <span class="tech-badge">MCD / MLD</span>
-        </div>
+        <div class="project-techs"><span class="tech-badge">MySQL</span><span class="tech-badge">SQL</span><span class="tech-badge">MCD / MLD</span></div>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- VEILLE TECHNOLOGIQUE -->
+<section id="veille">
+  <div class="section-header">
+    <h2>Veille Technologique</h2>
+    <p>Mes dernières découvertes & articles</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="veille-intro">
+    <p>Je réalise une veille technologique régulière pour rester à jour sur la cybersécurité. Je collecte et organise mes ressources sur Pearltrees, alimentées via Scoop.it 🌸</p>
+    <div class="veille-sources">
+      <a href="https://www.pearltrees.com/0ceaneg0" target="_blank" class="source-badge">🌿 Voir mon Pearltrees</a>
+      <a href="https://www.scoop.it" target="_blank" class="source-badge">📰 Voir mon Scoop.it</a>
+    </div>
+  </div>
+
+  <!-- Onglets -->
+  <div class="veille-tabs">
+    <button class="veille-tab active" onclick="switchTab(0)">🤖 Cyberattaque &amp; IA</button>
+    <button class="veille-tab" onclick="switchTab(1)">🔒 Sécurité des systèmes</button>
+    <button class="veille-tab" onclick="switchTab(2)">🏪 Risque Intersport</button>
+  </div>
+
+  <!-- Panneau 1 -->
+  <div class="veille-panel active" id="panel-0">
+    <div class="veille-embed-wrap">
+      <iframe src="https://www.pearltrees.com/0ceaneg0/cyberattaque-ai/id102547620?embed=2&d=20260312826" allowtransparency="true"></iframe>
+      <div class="veille-embed-caption">
+        🌿 <a href="https://www.pearltrees.com/0ceaneg0/cyberattaque-ai/id102547620" target="_blank">Ouvrir la collection complète sur Pearltrees</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panneau 2 -->
+  <div class="veille-panel" id="panel-1">
+    <div class="veille-embed-wrap">
+      <iframe src="https://www.pearltrees.com/0ceaneg0/securite-systemes-cyberattaque/id102547339?embed=2&d=20260312827" allowtransparency="true"></iframe>
+      <div class="veille-embed-caption">
+        🌿 <a href="https://www.pearltrees.com/0ceaneg0/securite-systemes-cyberattaque/id102547339" target="_blank">Ouvrir la collection complète sur Pearltrees</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panneau 3 -->
+  <div class="veille-panel" id="panel-2">
+    <div class="veille-embed-wrap">
+      <iframe src="https://www.pearltrees.com/0ceaneg0/risque-cyberattaque-intersport/id102547188?embed=2&d=20260312828" allowtransparency="true"></iframe>
+      <div class="veille-embed-caption">
+        🌿 <a href="https://www.pearltrees.com/0ceaneg0/risque-cyberattaque-intersport/id102547188" target="_blank">Ouvrir la collection complète sur Pearltrees</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -476,17 +420,28 @@
       Tu veux en savoir plus sur mon parcours ou mes projets ? N'hésite pas à me contacter, je serai ravie d'échanger avec toi 🌷
     </p>
     <div class="contact-links">
-      <a href="mailto:ton@email.fr"  class="contact-btn secondary">✉️ M'envoyer un mail</a>
-      <a href="https://linkedin.com" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
-      <a href="https://github.com" target="_blank" class="contact-btn secondary">🐱 GitHub</a>
+      <a href="mailto:oceanerioual028@gmail.com" class="contact-btn secondary">✉️ M'envoyer un mail</a>
+      <a href="https://www.linkedin.com/in/oc%C3%A9ane-rioual-4021383b3/" target="_blank" class="contact-btn secondary">💼 LinkedIn</a>
+      <a href="https://github.com/Ego1324" target="_blank" class="contact-btn secondary">🐱 GitHub</a>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  Fait avec <span>♥</span> · Portfolio BTS SIO SLAM · 2025
+  Portfolio BTS SIO SLAM · 2025
 </footer>
+
+<script>
+  function switchTab(index) {
+    document.querySelectorAll('.veille-tab').forEach(function(t, i) {
+      t.classList.toggle('active', i === index);
+    });
+    document.querySelectorAll('.veille-panel').forEach(function(p, i) {
+      p.classList.toggle('active', i === index);
+    });
+  }
+</script>
 
 </body>
 </html>
