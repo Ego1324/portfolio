@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HébergeX – Océane Rioual</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>:root{--blue:#6ea8ff;--sky:#d6e8ff;--ice:#f0f6ff;--periw:#4f7fd8;--deep:#2f4f8a;--text:#243447;--soft:#e6f0ff;--card:#ffffff;--shadow:rgba(79,127,216,.20);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--ice);color:var(--text);}
+body::before{content:'';position:fixed;inset:0;z-index:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");pointer-events:none;}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:1.1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(240,246,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(110,168,255,.2);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--deep);}
+.nav-logo span{color:var(--blue);font-style:italic;}
+.back-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--sky);color:var(--periw);border:1px solid rgba(79,127,216,.3);padding:.55rem 1.2rem;border-radius:99px;font-size:.85rem;font-weight:500;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.back-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px var(--shadow);}
+.page-wrap{max-width:900px;margin:0 auto;padding:7rem 2rem 4rem;position:relative;z-index:1;}
+.project-hero{background:var(--card);border-radius:28px;overflow:hidden;border:1px solid rgba(79,127,216,.2);box-shadow:0 8px 40px var(--shadow);margin-bottom:2rem;animation:fadeUp .7s ease both;}
+.project-hero-thumb{height:200px;display:flex;align-items:center;justify-content:center;font-size:5rem;}
+.project-hero-body{padding:2rem;}
+.project-hero-body h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--deep);margin-bottom:.7rem;}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem;}
+.tag{background:var(--sky);color:var(--periw);font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;padding:.3rem .8rem;border-radius:99px;}
+.intro{font-size:1rem;line-height:1.75;color:#7a5a68;}
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;animation:fadeUp .7s .1s ease both;}
+.content-card{background:var(--card);border-radius:20px;padding:1.8rem;border:1px solid rgba(79,127,216,.2);box-shadow:0 4px 20px var(--shadow);}
+.content-card h2{font-family:'Playfair Display',serif;color:var(--deep);font-size:1.15rem;margin-bottom:1rem;}
+.content-card ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.content-card ul li{font-size:.9rem;color:#7a5a68;line-height:1.6;padding-left:1.4rem;position:relative;}
+.tech-grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem;}
+.tech-pill{background:var(--soft);color:var(--periw);border:1px solid rgba(79,127,216,.2);padding:.4rem 1rem;border-radius:99px;font-size:.82rem;font-weight:500;}
+.full-card{grid-column:1/-1;}
+/* Screenshots */
+.screenshots-section{margin-bottom:1.5rem;animation:fadeUp .7s .2s ease both;}
+.screenshots-section h2{font-family:'Playfair Display',serif;color:var(--deep);font-size:1.15rem;margin-bottom:1.2rem;padding:1.8rem 1.8rem 0;}
+.screenshots-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;padding:0 1.8rem 1.8rem;}
+.screen-item{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(79,127,216,.15);box-shadow:0 4px 16px var(--shadow);cursor:pointer;transition:transform .25s,box-shadow .25s;background:var(--sky);}
+.screen-item:hover{transform:translateY(-4px);box-shadow:0 10px 28px var(--shadow);}
+.screen-item img{width:100%;height:200px;object-fit:cover;display:block;}
+.screen-caption{padding:.6rem .9rem;font-size:.78rem;color:var(--periw);font-weight:500;background:var(--card);}
+/* Lightbox */
+.lightbox{display:none;position:fixed;inset:0;z-index:999;background:rgba(20,35,65,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:16px;box-shadow:0 20px 80px rgba(0,0,0,.5);object-fit:contain;}
+.lightbox-close{position:absolute;top:1.2rem;right:1.5rem;font-size:2rem;color:#fff;cursor:pointer;line-height:1;}
+.lightbox-caption{position:absolute;bottom:1.5rem;color:rgba(255,255,255,.8);font-size:.88rem;}
+footer{text-align:center;padding:1.5rem;background:var(--soft);font-size:.8rem;color:var(--periw);border-top:1px solid rgba(79,127,216,.2);margin-top:3rem;position:relative;z-index:1;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:640px){.content-grid{grid-template-columns:1fr;}nav{padding:1rem 1.2rem;}.screenshots-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo">Mon <span>Portfolio</span></div>
+  <a href="index.html" class="back-btn">← Retour aux projets</a>
+</nav>
+<div class="page-wrap">
+  <div class="project-hero">
+    <div class="project-hero-thumb" style="background:linear-gradient(135deg,#e8f2ff,#c7ddff);">🖥️</div>
+    <div class="project-hero-body">
+      <div class="tags"><span class="tag">Infrastructure</span><span class="tag">Réseau Linux</span><span class="tag">Administration système</span></div>
+      <h1>HébergeX</h1>
+      <p class="intro">Plateforme d'hébergement web gratuit permettant à des particuliers de créer un compte et disposer automatiquement d'un site personnel. Le système gère de façon automatisée la création des comptes Linux, des entrées DNS, des configurations Apache et des bases de données.</p>
+    </div>
+  </div>
+  <div class="content-grid"><div class="content-card"><h2>⚙️ Fonctionnalités système</h2><ul><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Inscription avec alias unique (ex : alves71.hebergeX.lan)</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Création automatique du compte Linux et dossier public_html</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Génération du fichier de config Apache par utilisateur</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Ajout de l'entrée DNS dans Bind9 à l'inscription</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Création de la base de données personnelle (MySQL)</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Suppression complète du compte et de tous ses fichiers</li></ul></div><div class="content-card"><h2>🌐 Interface web PHP</h2><ul><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Page d'inscription avec vérification d'alias</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Authentification avec sessions PHP</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Tableau de bord : espace utilisé, nb de pages</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Modification des informations personnelles</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Bouton de suppression de compte</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Intégration GLPI pour tickets de support</li></ul></div><div class="content-card"><h2>🗄️ Services configurés</h2><ul><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Apache2 avec vhosts dynamiques</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>DNS : Bind9 avec zone hebergeX.lan</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>FTP : vsftpd pour upload des pages</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>BDD : MariaDB avec base par utilisateur</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>GLPI : ticketing et inventaire (FusionInventory)</li></ul></div><div class="content-card"><h2>💡 Compétences développées</h2><ul><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Administration système Linux (Debian)</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Automatisation par scripts Bash via PHP</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Configuration réseau et DNS</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Gestion de serveurs web multi-sites</li><li style="list-style:none;padding-left:1.4rem;position:relative;font-size:.9rem;color:#7a5a68;line-height:1.6;"><span style="position:absolute;left:0">🌸</span>Sécurité et gestion des droits (sudoers)</li></ul></div><div class="content-card full-card"><h2>🛠️ Technologies utilisées</h2><div class="tech-grid"><span class="tech-pill">Linux Debian</span><span class="tech-pill">Apache2</span><span class="tech-pill">PHP</span><span class="tech-pill">MySQL / MariaDB</span><span class="tech-pill">Bind9 (DNS)</span><span class="tech-pill">vsftpd (FTP)</span><span class="tech-pill">Bash</span><span class="tech-pill">GLPI</span></div></div></div>
+  <div class="content-card screenshots-section full-card" style="padding:0;">
+    <h2>📸 Aperçus du projet</h2>
+    <div class="screenshots-grid"><div class="screen-item" onclick="openLb('img/heberge4-accueil.png','Page d'accueil HebergeX')">
+      <img src="img/heberge4-accueil.png" alt="Page d'accueil HebergeX" loading="lazy"/>
+      <div class="screen-caption">Page d'accueil HebergeX</div>
+    </div><div class="screen-item" onclick="openLb('img/heberge4-connexion.png','Page de connexion')">
+      <img src="img/heberge4-connexion.png" alt="Page de connexion" loading="lazy"/>
+      <div class="screen-caption">Page de connexion</div>
+    </div><div class="screen-item" onclick="openLb('img/heberge4-inscription.png','Page d'inscription')">
+      <img src="img/heberge4-inscription.png" alt="Page d'inscription" loading="lazy"/>
+      <div class="screen-caption">Page d'inscription</div>
+    </div></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb" onclick="closeLb()">
+  <span class="lightbox-close">✕</span>
+  <img id="lb-img" src="" alt=""/>
+  <div class="lightbox-caption" id="lb-cap"></div>
+</div>
+<script>
+function openLb(src,cap){document.getElementById('lb-img').src=src;document.getElementById('lb-cap').innerText=cap;document.getElementById('lb').classList.add('open');}
+function closeLb(){document.getElementById('lb').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+</script>
+
+<footer>Portfolio BTS SIO SLAM · 2025</footer>
+</body>
+</html>
